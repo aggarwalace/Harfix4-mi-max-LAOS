@@ -86,6 +86,14 @@ config CFQ_GROUP_IOSCHED
 	---help---
 	  Enable group IO scheduling in CFQ.
 
+config IOSCHED_SIOPLUS
+	tristate "Simple I/O scheduler plus"
+	default y
+	---help---
+	Based on the original SIO scheduler with improvements. Functionality for specifying
+	the starvation of async reads against sync reads; starved write requests counter
+	only counts when there actually are write requests in the queue; fixed a bug).
+
 config IOSCHED_BFQ
 	tristate "BFQ I/O scheduler"
 	default n
@@ -120,6 +128,30 @@ choice
 
 	config DEFAULT_DEADLINE
 		bool "Deadline" if IOSCHED_DEADLINE=y
+
+        config DEFAULT_SIO
+		bool "SIO" if IOSCHED_SIO=y
+
+	config DEFAULT_NOOP
+		bool "No-op"
+
+	config DEFAULT_ZEN
+		bool "ZEN" if IOSCHED_ZEN=y
+
+	config DEFAULT_VR
+		bool "VR" if IOSCHED_VR=y
+
+        config DEFAULT_SIOPLUS
+		bool "SIOPLUS" if IOSCHED_SIOPLUS=y
+
+        config DEFAULT_FIOPS
+		bool "FIOPS" if IOSCHED_FIOPS=y
+
+        config DEFAULT_TRIPNDROID
+		bool "TRIPNDROID" if IOSCHED_TRIPNDROID=y
+
+        config DEFAULT_FIFO
+                bool "fifo" if IOSCHED_FIFO=y
 
 	config DEFAULT_ROW
 		bool "ROW" if IOSCHED_ROW=y
@@ -172,6 +204,7 @@ config DEFAULT_IOSCHED
 	default "sio" if DEFAULT_SIO
 	default "zen" if DEFAULT_ZEN
 	default "maple" if DEFAULT_MAPLE
+    default "sioplus" if DEFAULT_SIOPLUS
 
 endmenu
 
