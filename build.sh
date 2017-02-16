@@ -94,8 +94,8 @@ SUBARCH=arm64                                  # subarch of device ##
 USER=wisniew99                                   # Name of builder ##
 HOST=Harfix-machine                              # name of machine ##
 TCDIR=$HOME/TC                                   # Toolchain dir   ##
-TCNAME="gcc-linaro-6.2.1-2016.11-aarch64"        # Toolchain name  ##
-TCEND="bin/aarch64-linux-gnu-"             # End of toolchain name ##
+TCNAME="Harchain1"                               # Toolchain name  ##
+TCEND="bin/aarch64-linux-android-"         # End of toolchain name ##
 TCLIB="lib64/"                                  # lib folder in TC ##
 ##                                                                 ##
 ##                      ##  TC example:  ##                        ##
