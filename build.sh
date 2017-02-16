@@ -30,7 +30,7 @@
 #####################################################
 ##                                                  ##
 PRONAME="Harfix4"         # Project name.            ##
-VERSION="RC3"             # Version number or name.   ##
+VERSION="R1"              # Version number or name.   ##
 #                                                      ##
 #               New name = new main folder              ##
 #############################################################
@@ -77,10 +77,10 @@ HOME="$(dirname ~)/$(basename ~)"                           #
 ########################  CONFIGS  ##########################
 #############################################################
 ##                                                          ##
-CONFIG1=cyanogenmod_hydrogen_defconfig    # First config     ##
+CONFIG1=harfix4_defconfig                 # First config     ##
 CONFIG2=                                  # Second config     ##
 CONFIG3=                                  # Third config       ##
-CONFIG4=                              # fourth config       ##
+CONFIG4=                                  # fourth config       ##
 CONFIG5=                                  # fifth config         ##
 ##                                                                ##
 ##                                                                 ##
@@ -94,8 +94,8 @@ SUBARCH=arm64                                  # subarch of device ##
 USER=wisniew99                                   # Name of builder ##
 HOST=Harfix-machine                              # name of machine ##
 TCDIR=$HOME/TC                                   # Toolchain dir   ##
-TCNAME="Harchain1"                               # Toolchain name  ##
-TCEND="bin/aarch64-linux-android-"         # End of toolchain name ##
+TCNAME="gcc-linaro-6.2.1-2016.11-aarch64"        # Toolchain name  ##
+TCEND="bin/aarch64-linux-gnu-"             # End of toolchain name ##
 TCLIB="lib64/"                                  # lib folder in TC ##
 ##                                                                 ##
 ##                      ##  TC example:  ##                        ##
@@ -588,7 +588,7 @@ function COMPILEZIP
 function CLEANER
 {
     rm -rf arch/$ARCH/boot/zImage
-    rm -rf $PRONAME/ZIP_FILES/$PATHZIMAGE/zImage
+#    rm -rf $PRONAME/ZIP_FILES/$PATHZIMAGE/zImage
 #    rm -rf $PRONAME/ZIP_FILES/$PATHMODULES/*
     rm -rf $PRONAME/work/boot/*
     rm -rf $PRONAME/work/modules/*
