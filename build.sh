@@ -94,7 +94,7 @@ SUBARCH=arm64                                  # subarch of device ##
 USER=wisniew99                                   # Name of builder ##
 HOST=Harfix-machine                              # name of machine ##
 TCDIR=$HOME/TC                                   # Toolchain dir   ##
-TCNAME="Harchain1"                               # Toolchain name  ##
+TCNAME="google-ndk"                              # Toolchain name  ##
 TCEND="bin/aarch64-linux-android-"         # End of toolchain name ##
 TCLIB="lib64/"                                  # lib folder in TC ##
 ##                                                                 ##
