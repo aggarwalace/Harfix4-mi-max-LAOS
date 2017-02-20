@@ -30,7 +30,7 @@
 #####################################################
 ##                                                  ##
 PRONAME="Harfix4"         # Project name.            ##
-VERSION="R1"              # Version number or name.   ##
+VERSION="R2.1"              # Version number or name.   ##
 #                                                      ##
 #               New name = new main folder              ##
 #############################################################
@@ -38,17 +38,17 @@ VERSION="R1"              # Version number or name.   ##
 #############################################################
 ####              (1-enabled, 0-disabled)                ####
 ##                                                         ##
-CLEAN=0             # Clean before compile.    ##
+CLEAN=0                         # Clean before compile.    ##
 ##        ##  111  ##                                      ##
 MAIN1=1                         # Compile first version.   ##
     MAINZIP1=1                      # Zip first  version.  ##
 ##                                                         ##
-SECCLEAN=0          # Clean between versions.  ##
+SECCLEAN=0                      # Clean between versions.  ##
 ##        ##  222  ##                                      ##
-MAIN2=0                 # Compile second version.  ##
+MAIN2=1                         # Compile second version.  ##
     MAINZIP2=1                      # Zip second version.  ##
 ##                                                         ##
-THICLEAN=0          # Clean between versions.  ##
+THICLEAN=0                      # Clean between versions.  ##
 ##        ##  333  ##                                      ##
 MAIN3=0                         # Compile third version.   ##
     MAINZIP3=1                      # Zip third version.   ##
@@ -78,7 +78,7 @@ HOME="$(dirname ~)/$(basename ~)"                           #
 #############################################################
 ##                                                          ##
 CONFIG1=harfix4_defconfig                 # First config     ##
-CONFIG2=                                  # Second config     ##
+CONFIG2=harfix4_defconfig                 # Second config     ##
 CONFIG3=                                  # Third config       ##
 CONFIG4=                                  # fourth config       ##
 CONFIG5=                                  # fifth config         ##
@@ -105,8 +105,8 @@ TCLIB="lib64/"                                  # lib folder in TC ##
 ####################  BUILD SPECIFIC OPTIONS  #######################
 #####################################################################
 ##                                                                  ##
-NAME1=""                         # Name of first version             ##
-NAME2=""                         # Name of second version             ##
+NAME1="Hydrogen"                 # Name of first version             ##
+NAME2="Helium"                   # Name of second version             ##
 NAME3=""                         # Name of third version               ##
 NAME4=""                         # Name of fourth version               ##
 NAME5=""                         # Name of fifth version                 ##
@@ -119,7 +119,7 @@ PATHZIMAGE1=""                           # zImage path for first version   ##
 PATHMODULES1="modules"                   # modules path for first version  ##
 ##                                                                         ##
 PATHZIMAGE2=""                           # zImage path for second version  ##
-PATHMODULES2=""                          # modules path for second version ##
+PATHMODULES2="modules"                   # modules path for second version ##
 ##                                                                         ##
 PATHZIMAGE3=""                           # zImage path for third version   ##
 PATHMODULES3=""                          # modules path for third version  ##
@@ -212,6 +212,42 @@ then
 else
     echo "${ylw} $PRONAME/ZIP_FILES not exist. ${txtrst}"
     mkdir $PRONAME/ZIP_FILES
+    echo "${grn} Created. ${txtrst}"
+fi
+
+if [ -e "$PRONAME/ZIP_FILES2" ]
+then
+    echo "${bldblu} $PRONAME/ZIP_FILES2${txtrst}${blu} exist. ${txtrst}"
+else
+    echo "${ylw} $PRONAME/ZIP_FILES2 not exist. ${txtrst}"
+    mkdir $PRONAME/ZIP_FILES2
+    echo "${grn} Created. ${txtrst}"
+fi
+
+if [ -e "$PRONAME/ZIP_FILES3" ]
+then
+    echo "${bldblu} $PRONAME/ZIP_FILES3${txtrst}${blu} exist. ${txtrst}"
+else
+    echo "${ylw} $PRONAME/ZIP_FILE3S not exist. ${txtrst}"
+    mkdir $PRONAME/ZIP_FILES3
+    echo "${grn} Created. ${txtrst}"
+fi
+
+if [ -e "$PRONAME/ZIP_FILES4" ]
+then
+    echo "${bldblu} $PRONAME/ZIP_FILES4${txtrst}${blu} exist. ${txtrst}"
+else
+    echo "${ylw} $PRONAME/ZIP_FILES4 not exist. ${txtrst}"
+    mkdir $PRONAME/ZIP_FILES4
+    echo "${grn} Created. ${txtrst}"
+fi
+
+if [ -e "$PRONAME/ZIP_FILES5" ]
+then
+    echo "${bldblu} $PRONAME/ZIP_FILES5${txtrst}${blu} exist. ${txtrst}"
+else
+    echo "${ylw} $PRONAME/ZIP_FILES5 not exist. ${txtrst}"
+    mkdir $PRONAME/ZIP_FILES5
     echo "${grn} Created. ${txtrst}"
 fi
 
@@ -537,20 +573,20 @@ function COMPILEZIP
                 echo ""
 
                 echo "${bldblu} Coping files for zip... ${txtrst}"
-                cp $PRONAME/work/modules/* $PRONAME/ZIP_FILES/$PATHMODULES/
-                cp $PRONAME/work/boot/zImage $PRONAME/ZIP_FILES/$PATHZIMAGE/
+                cp $PRONAME/work/modules/* $PRONAME/$ZIP_FILES/$PATHMODULES/
+                cp $PRONAME/work/boot/zImage $PRONAME/$ZIP_FILES/$PATHZIMAGE/
                 echo "${grn} Done. ${txtrst}"
                 echo ""
 
                 echo "${bldblu} Zipping... ${txtrst}"
-                cd $PRONAME/ZIP_FILES
+                cd $PRONAME/$ZIP_FILES
                 zip -r $PRONAME.zip *
                 cd -
                 echo "${grn} Done. ${txtrst}"
                 echo ""
 
                 echo "${bldblu} Moving... ${txtrst}"
-                mv $PRONAME/ZIP_FILES/$PRONAME.zip $PRONAME/
+                mv $PRONAME/$ZIP_FILES/$PRONAME.zip $PRONAME/
                 echo "${grn} Done. ${txtrst}"
                 echo ""
 
@@ -620,6 +656,7 @@ NAME=$NAME1
 CONFIG=$CONFIG1
 PATHMODULES=$PATHMODULES1
 PATHZIMAGE=$PATHZIMAGE1
+ZIP_FILES=ZIP_FILES
 COMPILEZIP
 CLEANER
 
@@ -649,6 +686,7 @@ NAME=$NAME2
 CONFIG=$CONFIG2
 PATHMODULES=$PATHMODULES2
 PATHZIMAGE=$PATHZIMAGE2
+ZIP_FILES=ZIP_FILES2
 COMPILEZIP
 CLEANER
 
@@ -677,6 +715,7 @@ NAME=$NAME3
 CONFIG=$CONFIG3
 PATHMODULES=$PATHMODULES3
 PATHZIMAGE=$PATHZIMAGE3
+ZIP_FILES=ZIP_FILES3
 COMPILEZIP
 CLEANER
 
@@ -706,6 +745,7 @@ NAME=$NAME4
 CONFIG=$CONFIG4
 PATHMODULES=$PATHMODULES4
 PATHZIMAGE=$PATHZIMAGE4
+ZIP_FILES=ZIP_FILES4
 COMPILEZIP
 CLEANER
 
@@ -735,6 +775,7 @@ NAME=$NAME5
 CONFIG=$CONFIG5
 PATHMODULES=$PATHMODULES5
 PATHZIMAGE=$PATHZIMAGE5
+ZIP_FILES=ZIP_FILES5
 COMPILEZIP
 CLEANER
 
