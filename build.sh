@@ -45,7 +45,7 @@ MAIN1=1                         # Compile first version.   ##
 ##                                                         ##
 SECCLEAN=0                      # Clean between versions.  ##
 ##        ##  222  ##                                      ##
-MAIN2=1                         # Compile second version.  ##
+MAIN2=0                         # Compile second version.  ##
     MAINZIP2=1                      # Zip second version.  ##
 ##                                                         ##
 THICLEAN=0                      # Clean between versions.  ##
@@ -78,7 +78,7 @@ HOME="$(dirname ~)/$(basename ~)"                           #
 #############################################################
 ##                                                          ##
 CONFIG1=harfix4_defconfig                 # First config     ##
-CONFIG2=harfix4_defconfig                 # Second config     ##
+CONFIG2=                                  # Second config     ##
 CONFIG3=                                  # Third config       ##
 CONFIG4=                                  # fourth config       ##
 CONFIG5=                                  # fifth config         ##
@@ -105,8 +105,8 @@ TCLIB="lib64/"                                  # lib folder in TC ##
 ####################  BUILD SPECIFIC OPTIONS  #######################
 #####################################################################
 ##                                                                  ##
-NAME1="Hydrogen"                 # Name of first version             ##
-NAME2="Helium"                   # Name of second version             ##
+NAME1=""                         # Name of first version             ##
+NAME2=""                         # Name of second version             ##
 NAME3=""                         # Name of third version               ##
 NAME4=""                         # Name of fourth version               ##
 NAME5=""                         # Name of fifth version                 ##
@@ -119,7 +119,7 @@ PATHZIMAGE1=""                           # zImage path for first version   ##
 PATHMODULES1="modules"                   # modules path for first version  ##
 ##                                                                         ##
 PATHZIMAGE2=""                           # zImage path for second version  ##
-PATHMODULES2="modules"                   # modules path for second version ##
+PATHMODULES2=""                          # modules path for second version ##
 ##                                                                         ##
 PATHZIMAGE3=""                           # zImage path for third version   ##
 PATHMODULES3=""                          # modules path for third version  ##
