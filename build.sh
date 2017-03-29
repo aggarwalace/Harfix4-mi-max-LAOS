@@ -30,7 +30,7 @@
 #####################################################
 ##                                                  ##
 PRONAME="Harfix4"         # Project name.            ##
-VERSION="R2.1"              # Version number or name.   ##
+VERSION="R2.2"            # Version number or name.   ##
 #                                                      ##
 #               New name = new main folder              ##
 #############################################################
